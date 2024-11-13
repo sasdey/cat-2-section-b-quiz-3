@@ -1,0 +1,29 @@
+# Function to calculate gross pay, taxes, and net pay
+def calculate_pay(hours_worked, hourly_wage):
+    # Calculate regular and overtime hours
+    regular_hours = min(40, hours_worked)
+    overtime_hours = max(0, hours_worked - 40)
+    
+    # Calculate gross pay
+    gross_pay = (regular_hours * hourly_wage) + (overtime_hours * hourly_wage * 1.5)
+    
+    # Calculate taxes
+    if gross_pay <= 600:
+        taxes = gross_pay * 0.15
+    else:
+        taxes = (600 * 0.15) + ((gross_pay - 600) * 0.20)
+    
+    # Calculate net pay
+    net_pay = gross_pay - taxes
+    
+    # Print the results
+    print("Gross Pay: $", gross_pay)
+    print("Taxes: $", taxes)
+    print("Net Pay: $", net_pay)
+
+# Get input from the user
+hours = float(input("Enter hours worked in a week: "))
+wage = float(input("Enter hourly wage: "))
+
+# Calculate and display pay details
+calculate pay(hours,wages)
